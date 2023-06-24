@@ -1,4 +1,4 @@
-package com.example.notetaker.ui.theme
+package com.example.notetaker.plcoding.cleanarchitecturenoteapp.ui.theme
 
 import android.app.Activity
 import android.os.Build
@@ -63,6 +63,7 @@ fun NoteTakerTheme(
     }
 
     MaterialTheme(
+        /*TODO: Material theme updation from initial project repo of pl*/
         colorScheme = colorScheme,
         typography = Typography,
         content = content
