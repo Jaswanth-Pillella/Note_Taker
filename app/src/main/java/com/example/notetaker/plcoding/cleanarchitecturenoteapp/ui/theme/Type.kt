@@ -1,4 +1,4 @@
-package com.example.notetaker.ui.theme
+package com.example.notetaker.plcoding.cleanarchitecturenoteapp.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
