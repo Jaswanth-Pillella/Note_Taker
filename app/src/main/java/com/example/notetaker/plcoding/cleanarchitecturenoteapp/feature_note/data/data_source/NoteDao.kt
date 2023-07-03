@@ -15,12 +15,12 @@ interface NoteDao {
     fun getNotes(): Flow<List<Note>>
 
     @Query("SELECT * FROM note WHERE id =:id")
-    suspend fun getNoteByID(id:Int):Note?
+    suspend fun getNoteById(id:Int):Note?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertNote(note:Note)
 
     @Delete
-    suspend fun deleteNOte(note:Note)
+    suspend fun deleteNote(note:Note)
 
 }
