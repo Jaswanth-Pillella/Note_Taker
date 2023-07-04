@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.domain.util.NoteOrder
+import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.domain.util.OrderType
 
 @Composable
 fun OrderSection(
@@ -57,4 +59,3 @@ fun OrderSection(
         }
     }
 }
-/*TODO: 1:14:38 NoteOrder.kt file to be added*/
