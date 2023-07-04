@@ -7,6 +7,7 @@ import com.example.notetaker.plcoding.cleanarchitecturenoteapp.ui.theme.LightGre
 import com.example.notetaker.plcoding.cleanarchitecturenoteapp.ui.theme.RedOrange
 import com.example.notetaker.plcoding.cleanarchitecturenoteapp.ui.theme.RedPink
 import com.example.notetaker.plcoding.cleanarchitecturenoteapp.ui.theme.Violet
+import java.lang.Exception
 
 @Entity
 data class Note(
@@ -21,3 +22,5 @@ data class Note(
         val noteColors = listOf(RedOrange, LightGreen, Violet, BabyBlue, RedPink)
     }
 }
+
+class InvalidNoteExecption(messsage:String):Exception(messsage)

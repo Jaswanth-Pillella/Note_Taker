@@ -1,4 +1,4 @@
-package com.example.notetaker
+package com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
