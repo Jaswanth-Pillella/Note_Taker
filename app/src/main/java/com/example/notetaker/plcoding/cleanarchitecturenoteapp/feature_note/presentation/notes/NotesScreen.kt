@@ -29,11 +29,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.unit.dp
 import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.presentation.notes.components.NoteItem
 import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.presentation.notes.components.NotesEvent
 import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.presentation.notes.components.NotesViewModel
 import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.presentation.notes.components.OrderSection
+import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.presentation.util.Screen
 import kotlinx.coroutines.launch
 
 @Composable
@@ -49,6 +52,7 @@ fun NotesScreen(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
+                          navController.navigate(Screen.AddEditNoteScreen.route)
 
             },
                backgroundColor = MaterialTheme.colorScheme.primary
@@ -56,7 +60,15 @@ fun NotesScreen(
                Icon(imageVector = Icons.Default.Add, contentDescription = "Add note")
             },
         },
-        scaffoldState = scaffoldState
+        scaffoldState = scaffoldState,
+        snackbarHost = {
+            SnackbarHost(it){ data ->
+                Snackbar(
+                    actionColor = MaterialTheme.colorScheme.primary,
+                    snackbarData = data
+                )
+            }
+        }
     ) {
         Column(
             modifier = Modifier
@@ -104,7 +116,10 @@ fun NotesScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable {
-
+                                       navController.navigate(
+                                           Screen.AddEditNoteScreen.route +
+                                                   "?noteId=${note.id}&noteColor=${note.color}"
+                                       )
                             },
                         onDeleteClick = {
                             viewModel.onEvent(NotesEvent.DeleteNote(note))
