@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.domain.util.NoteOrder
+import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.domain.util.OrderType
 
 @Composable
 fun OrderSection(
@@ -46,15 +48,14 @@ fun OrderSection(
             DefaultRadioButton(
                 text = "Ascending",
                 selected = noteOrder.orderType is OrderType.Ascending,
-                onSelect = { onOrderChange(NoteOrder.copy(OrderType.Ascending)) }
+                onSelect = { onOrderChange(noteOrder.copy(OrderType.Ascending)) }
             )
             Spacer(modifier = Modifier.width(8.dp))
             DefaultRadioButton(
                 text = "Descending",
                 selected = noteOrder.orderType is OrderType.Descending,
-                onSelect = { onOrderChange(NoteOrder.copy(OrderType.Descending)) }
+                onSelect = { onOrderChange(noteOrder.copy(OrderType.Descending)) }
             )
         }
     }
 }
-/*TODO: 1:14:38 NoteOrder.kt file to be added*/
