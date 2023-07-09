@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.domain.model.Note
-import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.domain.use_case.NotesUseCases
+import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.domain.use_case.NoteUseCases
 import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.domain.util.NoteOrder
 import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.domain.util.OrderType
 import kotlinx.coroutines.launch
@@ -17,7 +17,7 @@ import kotlinx.coroutines.flow.onEach
 
 @HiltViewModel
 class NotesViewModel @Inject constructor(
-    private val noteUseCase: NotesUseCases
+    private val noteUseCase: NoteUseCases
 ) : ViewModel(){
     private val _state = mutableStateOf<NotesState>(NotesState())
     val state:State<NotesState> = _state
