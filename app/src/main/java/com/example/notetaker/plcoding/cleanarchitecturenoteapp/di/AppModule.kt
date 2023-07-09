@@ -8,7 +8,12 @@ import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.doma
 import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.domain.use_case.AddNoteUseCase
 import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.domain.use_case.DeleteNoteUseCase
 import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.domain.use_case.GetNotesUseCase
-import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.domain.use_case.NotesUseCases
+import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.domain.use_case.NoteUseCases
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 
 
 @Module
@@ -31,8 +36,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun providesNotesUseCase(repository: NoteRepository):NotesUseCases{
-        return NotesUseCases(
+    fun providesNotesUseCase(repository: NoteRepository):NoteUseCases{
+        return NoteUseCases(
             getNotesUseCase = GetNotesUseCase(repository),
             deleteNoteUseCase = DeleteNoteUseCase(repository),
             addNoteUseCase = AddNoteUseCase(repository)

@@ -9,7 +9,8 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.plcoding.cleanarchitecturenoteapp"
+        applicationId "com.example.notetaker.plcoding.cleanarchitecturenoteapp"
+
         minSdk 21
         targetSdk 33
         versionCode 1
@@ -47,6 +48,7 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+    namespace 'com.example.notetaker.plcoding.cleanarchitecturenoteapp'
 }
 
 dependencies {
