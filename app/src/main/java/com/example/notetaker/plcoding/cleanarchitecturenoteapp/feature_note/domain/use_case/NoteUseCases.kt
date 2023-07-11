@@ -3,5 +3,6 @@ package com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.dom
 data class NoteUseCases(
     val getNotesUseCase: GetNotesUseCase,
     val deleteNoteUseCase: DeleteNoteUseCase,
-    val addNoteUseCase: AddNoteUseCase
+    val addNoteUseCase: AddNoteUseCase,
+    val getNoteUseCase: GetNoteUseCase
 )
