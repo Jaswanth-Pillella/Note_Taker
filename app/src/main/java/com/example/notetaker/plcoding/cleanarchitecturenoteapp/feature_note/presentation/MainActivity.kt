@@ -10,10 +10,16 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.presentation.add_edit_note.AddEditNoteScreen
 import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.presentation.notes.NotesScreen
 import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.presentation.util.Screen
 import com.example.notetaker.plcoding.cleanarchitecturenoteapp.ui.theme.NoteTakerTheme
+import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

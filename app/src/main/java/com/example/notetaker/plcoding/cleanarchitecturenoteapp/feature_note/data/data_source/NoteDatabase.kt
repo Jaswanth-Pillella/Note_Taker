@@ -6,7 +6,8 @@ import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.doma
 
 @Database(
     entities = [Note::class],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 abstract class NoteDatabase:RoomDatabase() {
     abstract val noteDao:NoteDao

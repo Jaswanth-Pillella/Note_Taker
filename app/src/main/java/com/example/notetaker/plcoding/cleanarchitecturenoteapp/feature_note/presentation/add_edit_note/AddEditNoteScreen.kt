@@ -1,10 +1,12 @@
 package com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.presentation.add_edit_note
 
+import android.annotation.SuppressLint
 import androidx.compose.animation.Animatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -17,6 +19,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Save
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -30,12 +34,17 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.domain.model.Note
 import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.presentation.add_edit_note.components.TransparentHintTextField
-import kotlinx.coroutines.NonCancellable.message
+import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.presentation.add_edit_notes.AddEditNoteEvent
+import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.presentation.add_edit_notes.AddEditNoteViewModel
+import kotlinx.coroutines.flow.collectLatest
+//import kotlinx.coroutines.NonCancellable.message
 import kotlinx.coroutines.launch
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun AddEditNoteScreen(
     navController: NavController,
@@ -53,7 +62,7 @@ fun AddEditNoteScreen(
 val scope = rememberCoroutineScope()
 
     LaunchedEffect(key1 = true){
-        viewModel.eventflow.collectLatest{ event ->
+        viewModel.eventFlow.collectLatest{ event ->
             when(event) {
                 is AddEditNoteViewModel.UiEvent.ShowSnackbar ->{
                     scaffoldState.snackbarHostState.showSnackbar(
@@ -88,7 +97,7 @@ val scope = rememberCoroutineScope()
           Row(modifier = Modifier
               .fillMaxWidth()
               .padding(8.dp),
-          horizontalArrangment = Arrangment.SpaceBetween
+          horizontalArrangement = Arrangement.SpaceBetween
           ) {
              Note.noteColors.forEach { color ->
                  val colorInt = color.toArgb()
@@ -129,7 +138,7 @@ val scope = rememberCoroutineScope()
                },
                isHintVisible = titleState.isHintVisible,
                singleLine = true,
-               textStyle = MaterialTheme.typography.h5
+               textStyle = MaterialTheme.typography.bodySmall
            )
            Spacer(modifier = Modifier.height(16.dp))
            TransparentHintTextField(

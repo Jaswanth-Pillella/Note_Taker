@@ -61,7 +61,6 @@ fun NoteTakerTheme(
     }
 
     MaterialTheme(
-        /*TODO: Material theme updation from initial project repo of pl*/
         colorScheme = DarkColorScheme,
         typography = Typography,
         shapes = Shapes,
