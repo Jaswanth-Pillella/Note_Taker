@@ -64,7 +64,7 @@ class AddEditNoteViewModel @Inject constructor(
             }
             is AddEditNoteEvent.ChangeTitleFocus ->{
                 _noteTitle.value = noteTitle.value.copy(
-                    isHIntVisible = !event.focusState.isFocused && noteTitle.value.text.isBlank()
+                    isHintVisible = !event.focusState.isFocused && noteTitle.value.text.isBlank()
                 )
             }
             is AddEditNoteEvent.EnteredContent->{
