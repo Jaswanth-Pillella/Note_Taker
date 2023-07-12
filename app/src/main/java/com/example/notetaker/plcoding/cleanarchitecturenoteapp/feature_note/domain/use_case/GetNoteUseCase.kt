@@ -3,7 +3,7 @@ package com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.dom
 import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.domain.model.Note
 import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.domain.repository.NoteRepository
 
-class GetNoteUeCase(
+class GetNoteUseCase(
     private val repository: NoteRepository
 ) {
     suspend operator fun invoke(id:Int): Note?{

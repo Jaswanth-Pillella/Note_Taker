@@ -6,7 +6,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.domain.model.InvalidNoteExecption
+import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.domain.model.InvalidNoteException
 import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.domain.model.Note
 import com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.domain.use_case.NoteUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -77,7 +77,7 @@ class AddEditNoteViewModel @Inject constructor(
                     isHintVisible = !event.focusState.isFocused && noteTitle.value.text.isBlank()
                 )
             }
-            is AddEditNoteEvent.ChangeContentFocus->{
+            is AddEditNoteEvent.ChangeColor->{
                 _noteColor.value = event.color
             }
             is AddEditNoteEvent.SaveNote-> {
@@ -93,7 +93,7 @@ class AddEditNoteViewModel @Inject constructor(
                             )
                         )
                         _eventFlow.emit(UiEvent.SaveNote)
-                    } catch (e: InvalidNoteExecption){
+                    } catch (e: InvalidNoteException){
                         _eventFlow.emit(
                             UiEvent.ShowSnackbar(
                                 message = e.message?:"Couldn't take note"

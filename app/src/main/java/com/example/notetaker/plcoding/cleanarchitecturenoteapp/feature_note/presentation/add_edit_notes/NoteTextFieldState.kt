@@ -3,5 +3,5 @@ package com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.pre
 data class NoteTextFieldState(
     val text:String = "",
     val hint:String = "",
-    val isHIntVisible:Boolean = true
+    val isHintVisible:Boolean = true
 )
