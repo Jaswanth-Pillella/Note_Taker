@@ -23,4 +23,4 @@ data class Note(
     }
 }
 
-class InvalidNoteExecption(messsage:String):Exception(messsage)
+class InvalidNoteException(message:String):Exception(message)
