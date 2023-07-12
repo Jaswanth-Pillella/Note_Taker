@@ -20,11 +20,12 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Save
-import androidx.compose.material3.rememberScaffoldState
+//import androidx.compose.material3.rememberScaffoldState
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
@@ -53,7 +54,8 @@ fun AddEditNoteScreen(
 ){
     val titleState = viewModel.noteTitle.value
     val contentState = viewModel.noteContent.value
-    val scaffoldState = rememberScaffoldState()
+    //val scaffoldState = rememberScaffoldState()
+    val snackbarHostState = remember { SnackbarHostState() }
     val noteBackgroundAnimatable = remember{
         Animatable(
             Color(if(noteColor!= -1) noteColor else viewModel.noteColor.value)
@@ -65,7 +67,7 @@ val scope = rememberCoroutineScope()
         viewModel.eventFlow.collectLatest{ event ->
             when(event) {
                 is AddEditNoteViewModel.UiEvent.ShowSnackbar ->{
-                    scaffoldState.snackbarHostState.showSnackbar(
+                    snackbarHostState.showSnackbar(
                         message = event.message
                     )
                 }
@@ -82,12 +84,12 @@ val scope = rememberCoroutineScope()
                 onClick = {
                     viewModel.onEvent(AddEditNoteEvent.SaveNote)
                 },
-                backgroundColor = MaterialTheme.colorScheme.primary
+               containerColor = MaterialTheme.colorScheme.primary
             ) {
                 Icon(imageVector = Icons.Default.Save, contentDescription = "Save Note")
             }
         },
-        scaffoldState = scaffoldState
+        //scaffoldState = scaffoldState
     ){
        Column(modifier = Modifier
            .fillMaxSize()
