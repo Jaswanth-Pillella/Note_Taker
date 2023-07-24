@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.notetaker.plcoding.cleanarchitecturenoteapp"
-
+        multiDexEnabled = true
         minSdk 21
         targetSdk 33
         versionCode 1
@@ -31,6 +31,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            multiDexKeepProguard file('multidex-config.pro')
         }
     }
     compileOptions {
@@ -107,4 +108,6 @@ dependencies {
 
     // Kotlin Extensions and Coroutines support for Room
     implementation "androidx.room:room-ktx:2.5.2"
+    // Multi Dex Dependency
+    implementation "androidx.multidex:multidex:2.0.1"
 }

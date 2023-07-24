@@ -7,7 +7,7 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/baseline_edit_note_24"
         android:label="@string/app_name"
         android:roundIcon="@drawable/baseline_edit_note_24"
         android:supportsRtl="true"
@@ -16,8 +16,8 @@
         <activity
             android:name="com.example.notetaker.plcoding.cleanarchitecturenoteapp.feature_note.presentation.MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.NoteTaker">
+            android:theme="@style/Theme.NoteTaker"
+            tools:ignore="ExtraText">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
