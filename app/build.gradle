@@ -6,13 +6,13 @@ plugins {
 }
 
 android {
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
-        applicationId "com.example.notetaker.plcoding.cleanarchitecturenoteapp"
+        applicationId "com.project.notetaker"
         multiDexEnabled = true
         minSdk 21
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -31,7 +31,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            multiDexKeepProguard file('multidex-config.pro')
+            //multiDexKeepProguard file('multidex-config.pro')
         }
     }
     compileOptions {
@@ -60,7 +60,7 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
-    namespace 'com.example.notetaker.plcoding.cleanarchitecturenoteapp'
+    namespace 'com.project.notetaker'
 }
 
 dependencies {
@@ -78,6 +78,7 @@ dependencies {
     implementation 'androidx.activity:activity-compose:1.7.2'
     implementation 'androidx.navigation:navigation-runtime-ktx:2.6.0'
     testImplementation 'junit:junit:'
+    testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     //noinspection GradleDependency
