@@ -20,7 +20,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Save
-//import androidx.compose.material3.rememberScaffoldState
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -42,7 +41,6 @@ import com.project.notetaker.feature_note.presentation.add_edit_note.components.
 import com.project.notetaker.feature_note.presentation.add_edit_notes.AddEditNoteEvent
 import com.project.notetaker.feature_note.presentation.add_edit_notes.AddEditNoteViewModel
 import kotlinx.coroutines.flow.collectLatest
-//import kotlinx.coroutines.NonCancellable.message
 import kotlinx.coroutines.launch
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -54,7 +52,6 @@ fun AddEditNoteScreen(
 ){
     val titleState = viewModel.noteTitle.value
     val contentState = viewModel.noteContent.value
-    //val scaffoldState = rememberScaffoldState()
     val snackbarHostState = remember { SnackbarHostState() }
     val noteBackgroundAnimatable = remember{
         Animatable(
@@ -89,7 +86,6 @@ val scope = rememberCoroutineScope()
                 Icon(imageVector = Icons.Default.Save, contentDescription = "Save Note")
             }
         },
-        //scaffoldState = scaffoldState
     ){
        Column(modifier = Modifier
            .fillMaxSize()

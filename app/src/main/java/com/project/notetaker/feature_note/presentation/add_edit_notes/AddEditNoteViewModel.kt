@@ -1,6 +1,7 @@
 package com.project.notetaker.feature_note.presentation.add_edit_notes
 
 import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.graphics.toArgb
 import androidx.lifecycle.SavedStateHandle
@@ -26,7 +27,7 @@ class AddEditNoteViewModel @Inject constructor(
     private val _noteContent = mutableStateOf(NoteTextFieldState(hint = "Enter your content here"))
     val noteContent: State<NoteTextFieldState> = _noteContent
 
-    private val _noteColor = mutableStateOf<Int>(Note.noteColors.random().toArgb())
+    private val _noteColor = mutableIntStateOf(Note.noteColors.random().toArgb())
     val noteColor:State<Int> = _noteColor
 
     private val _eventFlow = MutableSharedFlow<UiEvent>()
@@ -48,7 +49,7 @@ class AddEditNoteViewModel @Inject constructor(
                             text = note.title,
                             isHintVisible = false
                         )
-                        _noteColor.value = noteColor.value
+                        _noteColor.intValue = noteColor.value
                     }
                 }
             }
@@ -78,7 +79,7 @@ class AddEditNoteViewModel @Inject constructor(
                 )
             }
             is AddEditNoteEvent.ChangeColor->{
-                _noteColor.value = event.color
+                _noteColor.intValue = event.color
             }
             is AddEditNoteEvent.SaveNote-> {
                 viewModelScope.launch {
@@ -107,6 +108,6 @@ class AddEditNoteViewModel @Inject constructor(
 
     sealed class UiEvent{
         data class ShowSnackbar(val message:String):UiEvent()
-        object  SaveNote:UiEvent()
+        data object  SaveNote:UiEvent()
     }
 }
