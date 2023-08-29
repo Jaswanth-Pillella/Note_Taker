@@ -17,14 +17,18 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Save
-import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.ExtendedFloatingActionButton
+
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
@@ -77,13 +81,17 @@ val scope = rememberCoroutineScope()
 
     Scaffold(
         floatingActionButton =  {
-            FloatingActionButton(
+            ExtendedFloatingActionButton(
                 onClick = {
                     viewModel.onEvent(AddEditNoteEvent.SaveNote)
                 },
-               containerColor = MaterialTheme.colorScheme.primary
+                shape = RoundedCornerShape(16.dp),
+               containerColor = MaterialTheme.colorScheme.primary,
+                contentColor = Color(0xFFFFFFFF)
             ) {
                 Icon(imageVector = Icons.Default.Save, contentDescription = "Save Note")
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(text = "Save")
             }
         },
     ){
@@ -136,7 +144,7 @@ val scope = rememberCoroutineScope()
                },
                isHintVisible = titleState.isHintVisible,
                singleLine = true,
-               textStyle = MaterialTheme.typography.bodySmall
+               textStyle = MaterialTheme.typography.titleLarge
            )
            Spacer(modifier = Modifier.height(16.dp))
            TransparentHintTextField(
@@ -149,7 +157,7 @@ val scope = rememberCoroutineScope()
                    viewModel.onEvent(AddEditNoteEvent.ChangeContentFocus(it))
                },
                isHintVisible = contentState.isHintVisible,
-               textStyle = MaterialTheme.typography.bodyMedium,
+               textStyle = MaterialTheme.typography.bodyLarge,
                modifier = Modifier.fillMaxHeight()
            )
        }

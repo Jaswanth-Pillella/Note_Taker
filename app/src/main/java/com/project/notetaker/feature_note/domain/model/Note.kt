@@ -2,10 +2,10 @@ package com.project.notetaker.feature_note.domain.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.project.notetaker.ui.theme.BabyBlue
+import com.project.notetaker.ui.theme.Green
 import com.project.notetaker.ui.theme.LightGreen
 import com.project.notetaker.ui.theme.RedOrange
-import com.project.notetaker.ui.theme.RedPink
+import com.project.notetaker.ui.theme.Blue
 import com.project.notetaker.ui.theme.Violet
 import java.lang.Exception
 
@@ -19,7 +19,7 @@ data class Note(
     val id:Int? = null
 ){
     companion object{
-        val noteColors = listOf(RedOrange, LightGreen, Violet, BabyBlue, RedPink)
+        val noteColors = listOf(RedOrange, LightGreen, Violet, Green, Blue)
     }
 }
 

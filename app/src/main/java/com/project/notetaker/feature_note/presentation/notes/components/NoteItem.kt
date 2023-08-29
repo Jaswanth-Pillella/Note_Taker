@@ -72,17 +72,17 @@ fun NoteItem(
        ) {
            Text(
                text = note.title,
-               style = MaterialTheme.typography.titleSmall,
+               style = MaterialTheme.typography.titleMedium,
                color = MaterialTheme.colorScheme.onSurface,
                maxLines = 1,
                overflow = TextOverflow.Ellipsis
            )
            Spacer(modifier = Modifier.height(8.dp))
            Text(
-               text = note.title,
+               text = note.content,
                style = MaterialTheme.typography.bodyMedium,
                color = MaterialTheme.colorScheme.onSurface,
-               maxLines = 10,
+               maxLines = 50,
                overflow = TextOverflow.Ellipsis
            )
        }
